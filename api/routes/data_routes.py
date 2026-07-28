@@ -182,11 +182,9 @@ def export_csv():
         )
 
     db = get_db()
+    # If DB is disconnected, use empty list for cursor
     if db is None:
-        return jsonify({
-            "status": "error",
-            "message": "Export is unavailable: database not connected.",
-        }), 503
+        logger.info("Database disconnected; streaming offline CSV export.")
 
     try:
         max_rows = min(int(request.args.get("limit", 5000)), 20000)
@@ -209,7 +207,7 @@ def export_csv():
                 "time_of_day", "distance_km", "threat_score", "threat_level",
             ])
             yield flush()
-            cursor = db.threat_predictions.find().sort("created_at", -1).limit(max_rows)
+            cursor = db.threat_predictions.find().sort("created_at", -1).limit(max_rows) if db is not None else []
             for doc in cursor:
                 tel = doc.get("telemetry", {})
                 ml = doc.get("ml_output", {})
@@ -227,7 +225,7 @@ def export_csv():
                 "top_confidence", "source_class", "review_status",
             ])
             yield flush()
-            cursor = db.vision_detections.find().sort("created_at", -1).limit(max_rows)
+            cursor = db.vision_detections.find().sort("created_at", -1).limit(max_rows) if db is not None else []
             for doc in cursor:
                 dets = doc.get("detections", [])
                 top = dets[0] if dets else {}
