@@ -15,7 +15,6 @@ logger = logging.getLogger(__name__)
 
 _model = None
 _load_lock = threading.Lock()
-_load_failed = False
 
 
 class VisionUnavailableError(RuntimeError):
@@ -23,13 +22,9 @@ class VisionUnavailableError(RuntimeError):
 
 
 def _get_model():
-    global _model, _load_failed
+    global _model
     if _model is not None:
         return _model
-    if _load_failed:
-        raise VisionUnavailableError(
-            "Vision engine unavailable: YOLO weights failed to load."
-        )
     with _load_lock:
         if _model is not None:
             return _model
@@ -39,7 +34,6 @@ def _get_model():
             logger.info("YOLO weights loaded from %s", config.YOLO_WEIGHTS_PATH)
             return _model
         except Exception as exc:
-            _load_failed = True
             logger.exception("Could not load YOLO weights.")
             raise VisionUnavailableError(
                 "Vision engine unavailable: YOLO weights failed to load."
