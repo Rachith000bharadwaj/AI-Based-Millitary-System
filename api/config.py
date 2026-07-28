@@ -9,7 +9,7 @@ import secrets
 from dotenv import load_dotenv
 
 # Load the .env that sits at the repository root (one level above api/).
-load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"), override=True)
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
