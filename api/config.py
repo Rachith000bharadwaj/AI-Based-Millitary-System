@@ -33,7 +33,7 @@ class Config:
     ENV = os.getenv("FLASK_ENV", "production").strip().lower()
     IS_PRODUCTION = ENV == "production"
     DEBUG = _env_bool("FLASK_DEBUG", default=not IS_PRODUCTION)
-    HOST = os.getenv("HOST", "127.0.0.1")
+    HOST = os.getenv("HOST", "0.0.0.0")
     PORT = _env_int("PORT", 5332)
 
     # --- Security ----------------------------------------------------------
