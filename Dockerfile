@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     libgl1 \
     libglib2.0-0 \
+    procps \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
@@ -36,4 +37,4 @@ RUN npm run build
 EXPOSE 3000 5332
 
 # Start production server
-CMD ["npx", "concurrently", "-k", "-p", "[{name}]", "-c", "cyan.bold,yellow.bold", "-n", "NEXT,FLASK", "npm run start", "python api/app.py"]
+CMD ["npx", "concurrently", "-k", "-p", "[{name}]", "-c", "cyan.bold,yellow.bold", "-n", "NEXT,FLASK", "npm run start", "env PORT=5332 python api/app.py"]
