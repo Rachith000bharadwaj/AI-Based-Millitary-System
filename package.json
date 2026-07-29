@@ -11,7 +11,7 @@
     "dev:api": "python api/app.py",
     "dev": "concurrently -k -p \"[{name}]\" -c \"cyan.bold,yellow.bold\" -n \"NEXT,FLASK\" \"next dev\" \"python api/app.py\"",
     "build": "next build",
-    "start": "concurrently -k -p \"[{name}]\" -c \"cyan.bold,yellow.bold\" -n \"NEXT,FLASK\" \"next dev\" \"python api/app.py\"",
+    "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:api": "python -m pytest",
