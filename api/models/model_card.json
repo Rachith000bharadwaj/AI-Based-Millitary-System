@@ -2,37 +2,37 @@
   "algorithm": "XGBoost gradient-boosted trees (squared error)",
   "confusion_matrix": {
     "CRITICAL": {
-      "CRITICAL": 88,
-      "HIGH": 42,
+      "CRITICAL": 90,
+      "HIGH": 40,
       "LOW": 0,
       "MEDIUM": 0
     },
     "HIGH": {
-      "CRITICAL": 12,
+      "CRITICAL": 14,
       "HIGH": 706,
       "LOW": 0,
-      "MEDIUM": 75
+      "MEDIUM": 73
     },
     "LOW": {
       "CRITICAL": 0,
       "HIGH": 0,
-      "LOW": 659,
-      "MEDIUM": 66
+      "LOW": 658,
+      "MEDIUM": 67
     },
     "MEDIUM": {
       "CRITICAL": 0,
       "HIGH": 73,
-      "LOW": 56,
-      "MEDIUM": 623
+      "LOW": 59,
+      "MEDIUM": 620
     }
   },
   "feature_importance": {
-    "ConfidenceScore": 0.0203,
-    "DetectedObject": 0.7995,
-    "DistanceToBorder_km": 0.0658,
-    "Terrain": 0.0391,
-    "TimeOfDay": 0.0449,
-    "Weather": 0.0305
+    "ConfidenceScore": 0.0211,
+    "DetectedObject": 0.7993,
+    "DistanceToBorder_km": 0.0665,
+    "Terrain": 0.0387,
+    "TimeOfDay": 0.0451,
+    "Weather": 0.0292
   },
   "features": [
     "DetectedObject",
@@ -49,18 +49,18 @@
     "Scores are advisory decision support and require analyst confirmation before any action."
   ],
   "metrics": {
-    "band_accuracy": 0.865,
-    "mae": 3.347,
+    "band_accuracy": 0.8642,
+    "mae": 3.346,
     "r2": 0.9564,
-    "rmse": 4.221
+    "rmse": 4.22
   },
   "model_version": "xgboost-regressor-v3",
-  "trained_at": "2026-07-26T14:10:14.621210+00:00",
+  "trained_at": "2026-07-29T12:24:55.906189+00:00",
   "training_data": "synthetic",
   "training_samples": 9600,
   "uncertainty": {
-    "empirical_coverage": 0.7558,
-    "mean_interval_width": 10.72,
+    "empirical_coverage": 0.7583,
+    "mean_interval_width": 10.52,
     "nominal_coverage": 0.8,
     "quantiles": [
       0.1,
