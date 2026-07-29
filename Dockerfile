@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r api/requirements.txt
 
 # Install Node.js frontend dependencies
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 
 # Copy application source code
 COPY . .
