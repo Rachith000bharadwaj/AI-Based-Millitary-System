@@ -1,6 +1,9 @@
 
 # AegisAI — Intelligence, Threat Prediction & Decision Support Platform
 
+**🌍 Live Demo:** [https://ai-based-millitary-system.onrender.com](https://ai-based-millitary-system.onrender.com)  
+**💻 GitHub Repository:** [https://github.com/Rachith000bharadwaj/AI-Based-Millitary-System](https://github.com/Rachith000bharadwaj/AI-Based-Millitary-System)
+
 > Turning surveillance data into actionable intelligence.
 
 A full-stack analyst workspace combining computer-vision object detection
