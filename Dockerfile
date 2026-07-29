@@ -30,6 +30,9 @@ RUN npm install --include=dev
 # Copy application source code
 COPY . .
 
+# Generate Threat Prediction ML models
+RUN python api/train_threat_model.py
+
 # Build Next.js production bundle with telemetry disabled
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
